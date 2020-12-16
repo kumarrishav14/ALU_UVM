@@ -33,7 +33,7 @@ class reference_model extends uvm_component;
                     end
                     3: begin
                         rcvd_trans.res = rcvd_trans.OPA - rcvd_trans.OPB - rcvd_trans.cin;
-                        rcvd_trans.oflow = rcvd_trans.OPA < (rcvd_trans.OPB + rcvd_trans.cin) ? 1 : 0;
+                        rcvd_trans.oflow = rcvd_trans.res[8];
                     end 
                     4: rcvd_trans.res = rcvd_trans.OPA + 1;
                     5: rcvd_trans.res = rcvd_trans.OPA - 1;
