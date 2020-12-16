@@ -4,4 +4,5 @@
 `include "rnd_sequence.sv"
 `include "interface.sv"
 `include "driver.sv"
+`include "monitor.sv"
 `include "agent.sv"

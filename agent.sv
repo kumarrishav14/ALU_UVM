@@ -6,16 +6,18 @@ class agent extends uvm_agent;
     random_seq rnd_seq;
     uvm_sequencer#(transaction) seqr;
     driver drv;
+    monitor mon;
     function new(string name, uvm_component parent);
         super.new(name, parent);
     endfunction //new()
 
     function void build_phase(uvm_phase phase);
         dir_seq = directed_seq::type_id::create("dir_seq");
-        rnd_seq = random_seq::type_id::create("rnd_seq");
+        //rnd_seq = random_seq::type_id::create("rnd_seq");
 
         seqr = uvm_sequencer#(transaction)::type_id::create("seqr", this);
         drv = driver::type_id::create("drv", this);
+        mon = monitor::type_id::create("mon", this);
     endfunction
 
     function void connect_phase(uvm_phase phase);
@@ -29,7 +31,7 @@ class agent extends uvm_agent;
     task run_phase(uvm_phase phase);
         phase.raise_objection(this);
         dir_seq.start(seqr);
-        rnd_seq.start(seqr);
+        //rnd_seq.start(seqr);
         phase.drop_objection(this);
     endtask
 endclass //agent extends uvm_agent

@@ -17,8 +17,8 @@ class driver extends uvm_driver#(transaction);
     task run_phase(uvm_phase phase);
         forever begin
             seq_item_port.get_next_item(trans);
-            `uvm_info(get_type_name(), $sformatf("DRIVED PACKET:: %s", trans.convert2string), UVM_LOW);
             drive();
+            `uvm_info(get_type_name(), $sformatf("DRIVED PACKET:: %s", trans.convert2string), UVM_LOW);
             seq_item_port.item_done();
         end
     endtask

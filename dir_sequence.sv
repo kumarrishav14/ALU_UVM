@@ -70,6 +70,8 @@ class directed_seq extends uvm_sequence#(transaction);
             trans.err           =test_case_mem[i][0];
             trans.isRandom      =0;
             finish_item(trans);
+            `uvm_info("DIR_SEQ", "Sent packet", UVM_HIGH)
+            
         end
     endtask
 endclass //directed_seq extends uvm_sequence
