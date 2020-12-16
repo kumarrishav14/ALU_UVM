@@ -48,6 +48,7 @@ class random_seq extends uvm_sequence#(transaction);
             
             trans.isRandom  = 1;
             finish_item(trans);
+            `uvm_info("RND_SEQ", "Sent packet", UVM_HIGH)
         end
     endtask
 endclass //directed_seq extends uvm_sequence

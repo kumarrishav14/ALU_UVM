@@ -35,15 +35,21 @@ interface alu_if(input bit clk);
         output OPA, OPB, cin, ce, mode, cmd, rst;
     endclocking
 
-    clocking ipmon_cb@(posedge clk);
+    /* clocking ipmon_cb@(posedge clk);
         input OPA, OPB, cin, ce, mode, cmd;
     endclocking
 
     clocking opmon_cb@(posedge clk);
         input #0 oflow, cout, g, e, l, err, res;
+    endclocking */
+
+    clocking mon_cb@(posedge clk);
+        input OPA, OPB, cin, ce, mode, cmd;
+        input #0 oflow, cout, g, e, l, err, res;
     endclocking
 
     modport DRV(clocking drv_cb);
-    modport IPMON(clocking ipmon_cb);
-    modport OPMON(clocking opmon_cb);
+    modport MON(clocking mon_cb);
+    // modport IPMON(clocking ipmon_cb);
+    // modport OPMON(clocking opmon_cb);
 endinterface //alu_if

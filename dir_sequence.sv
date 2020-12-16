@@ -29,7 +29,7 @@ class directed_seq extends uvm_sequence#(transaction);
     int no_dir_test_cases;
     string file_name;
     bit skip_dir_cases;
-    bit [47:0] test_case_mem [];
+    logic [47:0] test_case_mem [];
     function new(string name = "dir_seq");
         super.new(name);
         trans = transaction::type_id::create("trans");
@@ -70,6 +70,8 @@ class directed_seq extends uvm_sequence#(transaction);
             trans.err           =test_case_mem[i][0];
             trans.isRandom      =0;
             finish_item(trans);
+            `uvm_info("DIR_SEQ", "Sent packet", UVM_HIGH)
+            
         end
     endtask
 endclass //directed_seq extends uvm_sequence
