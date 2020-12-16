@@ -2,7 +2,7 @@ class scoreboard extends uvm_scoreboard;
     `uvm_component_utils(scoreboard)
     
     // Variable
-    uvm_analysis_imp#(transaction, this) ap_export;
+    uvm_analysis_imp#(transaction, scoreboard) ap_export;
     transaction act_trans, exp_trans;
 
     function void write(transaction act_trans);

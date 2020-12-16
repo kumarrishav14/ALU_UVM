@@ -3,7 +3,7 @@ class monitor extends uvm_monitor;
 
     // Variables
     virtual alu_if.MON intf;
-    uvm_analysis_port ap;
+    uvm_analysis_port#(transaction) ap;
     transaction trans;
     
     function new(string name, uvm_component parent);
@@ -45,6 +45,7 @@ task monitor::run_phase(uvm_phase phase);
         trans.egl   = { intf.mon_cb.e, intf.mon_cb.g, intf.mon_cb.l };
         trans.err   = intf.mon_cb.err;
         `uvm_info("MON", $sformatf("Sampled Packet is %s", trans.convert2string), UVM_MEDIUM)
+        ap.write(trans);
     end
 endtask: run_phase
 
