@@ -45,8 +45,7 @@ function void environment::end_of_elaboration_phase(uvm_phase phase);
     uvm_top.print_topology();
     f_id = $fopen("log.txt", "w");
     uvm_top.set_report_default_file_hier(f_id);
-    uvm_top.set_report_severity_action_hier(UVM_INFO, UVM_LOG);
-    uvm_top.set_report_severity_action_hier(UVM_ERROR, UVM_LOG);
+    scb.set_report_id_action("SCB", UVM_LOG | UVM_DISPLAY);
 endfunction: end_of_elaboration_phase
 
 
