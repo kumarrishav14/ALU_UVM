@@ -10,3 +10,5 @@
 `include "scoreboard.sv"
 `include "fun_cov.sv"
 `include "environmnet.sv"
+`include "test.sv"
+`include "tb_top.sv"
