@@ -8,4 +8,5 @@
 `include "agent.sv"
 `include "reference_model.sv"
 `include "scoreboard.sv"
+`include "fun_cov.sv"
 `include "environmnet.sv"
